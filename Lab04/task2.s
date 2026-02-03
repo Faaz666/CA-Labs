@@ -1,4 +1,3 @@
-
 li x5, 10
 jal x6, faaz
 li x10, 1
