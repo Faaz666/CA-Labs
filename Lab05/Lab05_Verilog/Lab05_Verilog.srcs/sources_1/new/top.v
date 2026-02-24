@@ -19,7 +19,7 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-module top(input clk, input btnC, input  [15:0] switches, output [3:0] an, output [6:0] seg, output dp);
+module top(input clk, input btnC, input [15:0] switches, output [3:0] an, output [6:0] seg, output dp);
     wire rst;
     debouncer deb0(.clk(clk), .pbin(btnC), .pbout(rst));
     wire [31:0] writeData = 32'b0;
@@ -30,10 +30,8 @@ module top(input clk, input btnC, input  [15:0] switches, output [3:0] an, outpu
     wire [15:0] leds_unused;
     switches sw(.clk(clk), .rst(rst), .writeData(writeData), .writeEnable(writeEnable), .readEnable(readEnable), .memAddress(memAddress), .readData(readData_sw), .leds(leds_unused));
     wire [31:0] readData_led;
-    leds led(.clk(clk), .rst(rst), .btns(16'b0), .writeData(writeData), .writeEnable(writeEnable), .readEnable(readEnable), .memAddress(memAddress), .switches(switches), .readData(readData_led));
+    leds led(.clk(clk), .rst(rst), .btns(16'b0), .writeData(writeData), .writeEnable(writeEnable), .readEnable(readEnable), .memAddress(memAddress), .switches(switches), .readData(readData_led)); 
     wire [15:0] counter;
     fsm fsm0(.clk(clk), .rst(rst), .switches(switches), .counter(counter));
     hex hex0(.clk(clk), .rst(rst), .counter(counter), .an(an), .seg(seg), .dp(dp));
 endmodule
-
-
