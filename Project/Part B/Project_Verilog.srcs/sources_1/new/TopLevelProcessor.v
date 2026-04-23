@@ -31,8 +31,8 @@ pcAdder pa(.PC(PC), .PCplus4(PCplus4));
 branchAdder ba(.PC(PC), .imm(imm), .branchTarget(branchTarget));
 assign jumpTarget = ReadData1 + imm;
 wire [31:0] nextPC;
-assign nextPC = (JumpReg) ? jumpTarget :
-                (Jump) ? branchTarget :
+assign nextPC = (JumpReg) ? jumpTarget : //JALR
+                (Jump) ? branchTarget : //JAL
                 (branchTaken) ? branchTarget :
                 PCplus4;
 

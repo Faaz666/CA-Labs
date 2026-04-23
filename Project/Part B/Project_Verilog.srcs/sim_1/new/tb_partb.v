@@ -25,12 +25,8 @@ module tb_task2;
         rst = 0;
         
         #20000;
-        $finish;
     end
 
-    // Monitor LEDs for changes
-    always @(LEDs) begin
-        $display("Time=%0t | LEDs=%h (decimal %0d) | PC=%0d", $time, LEDs, LEDs, uut.PC);
-    end
+   
 
 endmodule

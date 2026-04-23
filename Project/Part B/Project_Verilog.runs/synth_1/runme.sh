@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/Users/fs09911/Desktop/CA-Labs/Project/Project_Verilog/Project_Verilog.runs/synth_1'
+HD_PWD='C:/Users/fs09911/Desktop/CA-Labs/Project/Part B/Project_Verilog.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
@@ -40,4 +40,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log TopLevelProcessor.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source TopLevelProcessor.tcl
+EAStep vivado -log fpga_top.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source fpga_top.tcl
